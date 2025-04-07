@@ -1,0 +1,275 @@
+/* Estilos específicos para o diagnóstico */
+.diagnostico-completo {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.secao {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.secao h2 {
+    color: #4a6bff;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.resumo-lista {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #4a6bff;
+}
+
+.resumo-lista li {
+    margin-bottom: 8px;
+}
+
+.pilar {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.pilar h3 {
+    color: #4a6bff;
+    margin-bottom: 10px;
+}
+
+.pilar h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.pontuacao-container {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.pontuacao-barra {
+    flex-grow: 1;
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.pontuacao-preenchimento {
+    height: 100%;
+    background-color: #4a6bff;
+    border-radius: 5px;
+}
+
+.pontuacao-valor {
+    font-weight: bold;
+    min-width: 40px;
+    text-align: right;
+}
+
+.swot-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.swot-item {
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.swot-forcas {
+    background-color: #d4edda;
+    border-left: 4px solid #28a745;
+}
+
+.swot-fraquezas {
+    background-color: #f8d7da;
+    border-left: 4px solid #dc3545;
+}
+
+.swot-oportunidades {
+    background-color: #d1ecf1;
+    border-left: 4px solid #17a2b8;
+}
+
+.swot-ameacas {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+}
+
+.swot-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.plano-acao-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.plano-acao-tabela th, .plano-acao-tabela td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dee2e6;
+}
+
+.plano-acao-tabela th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.prioridade-alta {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.prioridade-média {
+    color: #fd7e14;
+    font-weight: bold;
+}
+
+.prioridade-baixa {
+    color: #28a745;
+}
+
+.kpis-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.kpi-grupo {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.kpi-grupo h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #4a6bff;
+}
+
+.metricas-calculadas {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.metricas-calculadas h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #4a6bff;
+}
+
+.oportunidades-container, .estrategias-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.oportunidade-item, .estrategia-item {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #4a6bff;
+}
+
+.oportunidade-item h3, .estrategia-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #4a6bff;
+}
+
+.implementacao {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #dee2e6;
+}
+
+.implementacao h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #6c757d;
+}
+
+.recomendacoes-dados {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.recomendacao-item {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.recomendacao-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #4a6bff;
+}
+
+/* Estilos para impressão/PDF */
+@media print {
+    body {
+        font-size: 12pt;
+        color: #000;
+        background: #fff;
+    }
+    
+    .diagnostico-completo {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .secao {
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+    }
+    
+    .swot-container, .kpis-container, .oportunidades-container, 
+    .estrategias-container, .recomendacoes-dados {
+        display: block;
+    }
+    
+    .swot-item, .kpi-grupo, .oportunidade-item, 
+    .estrategia-item, .recomendacao-item {
+        margin-bottom: 15px;
+    }
+    
+    .pontuacao-barra {
+        border: 1px solid #ccc;
+    }
+    
+    .pontuacao-preenchimento {
+        background-color: #666;
+    }
+    
+    .swot-forcas, .swot-fraquezas, .swot-oportunidades, .swot-ameacas {
+        border-left-width: 10px;
+    }
+    
+    .plano-acao-tabela th, .plano-acao-tabela td {
+        border: 1px solid #000;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .swot-container, .kpis-container, .oportunidades-container, 
+    .estrategias-container, .recomendacoes-dados {
+        grid-template-columns: 1fr;
+    }
+}
