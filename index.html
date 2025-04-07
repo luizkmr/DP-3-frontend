@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Empresarial com Plano de Ação</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="diagnostico.css">
+    <link rel="stylesheet" href="pdf-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div id="typebot-container">
+            <!-- Tela de Apresentação -->
+            <div id="presentation-screen" class="screen active">
+                <div class="logo-container">
+    <img src="https://vencedordygital.com.br/wp-content/uploads/2025/04/1-1.png" alt="Logo Negócios Dygitais" class="logo-image">
+</div>
+                <h1>Diagnóstico Empresarial com Plano de Ação</h1>
+                <h2>Análise estratégica personalizada para o seu negócio</h2>
+                <p>
+                    Bem-vindo ao nosso sistema de diagnóstico empresarial! Vamos analisar cuidadosamente 
+                    as informações do seu negócio para criar um plano de ação personalizado e prático.
+                </p>
+                <p>
+                    Responda às perguntas a seguir com o máximo de detalhes possível. 
+                    Ao final, você receberá um diagnóstico completo com recomendações 
+                    estratégicas para impulsionar o crescimento do seu negócio.
+                </p>
+                <button id="start-button" class="primary-button">
+                    <i class="fas fa-play-circle"></i> Iniciar Diagnóstico
+                </button>
+            </div>
+
+            <!-- Formulário de Perguntas -->
+            <div id="form-screen" class="screen">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress-fill"></div>
+                    </div>
+                    <div id="progress-text">Pergunta 1 de 21</div>
+                </div>
+
+                <div id="question-container">
+                    <!-- As perguntas serão inseridas aqui dinamicamente -->
+                </div>
+
+                <div class="navigation-buttons">
+                    <button id="prev-button" class="secondary-button" disabled>
+                        <i class="fas fa-arrow-left"></i> Anterior
+                    </button>
+                    <button id="next-button" class="primary-button">
+                        Próxima <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tela de Processamento -->
+            <div id="processing-screen" class="screen">
+                <div class="loading-container">
+                    <div class="loading-spinner"></div>
+                </div>
+                <h2>Processando seu diagnóstico...</h2>
+                <p>Estamos analisando suas respostas e gerando seu diagnóstico personalizado com plano de ação.</p>
+                <p class="small-text">Isso pode levar alguns instantes.</p>
+            </div>
+
+            <!-- Tela de Resultado -->
+            <div id="result-screen" class="screen">
+                <h1>Seu Diagnóstico Empresarial</h1>
+                <div id="diagnosis-container">
+                    <!-- O diagnóstico será inserido aqui dinamicamente -->
+                </div>
+                <div class="action-buttons">
+                    <button id="download-pdf" class="primary-button">
+                        <i class="fas fa-file-pdf"></i> Baixar PDF
+                    </button>
+                    <button id="contact-button" class="secondary-button">
+                        <i class="fas fa-envelope"></i> Solicitar Ajuda para Implementação
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+	<script src="perguntas.js"></script>
+  </body>
+</html>
