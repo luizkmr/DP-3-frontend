@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   const downloadBtn = document.getElementById("download-pdf")
+  const restartBtn = document.createElement("button")
 
   if (downloadBtn) {
     downloadBtn.addEventListener("click", async () => {
       const target = document.getElementById("diagnosis-container")
       if (!target) return alert("Diagnóstico não encontrado.")
+
+      alert("📥 Iniciando download do PDF...")
 
       const canvas = await html2canvas(target)
       const imgData = canvas.toDataURL("image/png")
@@ -13,6 +16,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const altura = pdf.internal.pageSize.getHeight()
       pdf.addImage(imgData, "PNG", 0, 0, largura, altura)
       pdf.save("diagnostico.pdf")
+    })
+  }
+
+  restartBtn.id = "restart-button"
+  restartBtn.className = "secondary-button"
+  restartBtn.innerHTML = '<i class="fas fa-redo"></i> Reiniciar Diagnóstico'
+  restartBtn.style.marginTop = "10px"
+  const resultScreen = document.getElementById("result-screen")
+  if (resultScreen) {
+    resultScreen.appendChild(restartBtn)
+    restartBtn.addEventListener("click", () => {
+      location.reload()
     })
   }
 
