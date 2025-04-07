@@ -27,7 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (resultScreen) {
     resultScreen.appendChild(restartBtn)
     restartBtn.addEventListener("click", () => {
-      location.reload()
+      localStorage.removeItem("diagnostico_respostas")
+      localStorage.removeItem("diagnostico_html")
+      document.getElementById("diagnosis-container").innerHTML = ""
+      document.getElementById("presentation-screen").classList.add("active")
+      document.getElementById("result-screen").classList.remove("active")
     })
   }
 
@@ -49,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
         modelo_negocio: document.getElementById("modelo_negocio")?.value
       }
 
+      localStorage.setItem("diagnostico_respostas", JSON.stringify(respostas))
+
       fetch("https://dpa-sk6b.onrender.com/api/gerar-diagnostico", {
         method: "POST",
         headers: {
@@ -59,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(res => res.json())
         .then(data => {
           document.getElementById("diagnosis-container").innerHTML = data.html
+          localStorage.setItem("diagnostico_html", data.html)
         })
         .catch(async error => {
           let mensagem = "Erro desconhecido."
