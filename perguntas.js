@@ -1,21 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
   const perguntas = [
-    { name: 'nome', label: 'Seu nome', type: 'text' },
-    { name: 'email', label: 'E-mail', type: 'email' },
-    { name: 'whatsapp', label: 'WhatsApp', type: 'tel' },
-    { name: 'cidade', label: 'Cidade', type: 'text' },
-    { name: 'nome_negocio', label: 'Nome do negócio', type: 'text' },
+    { name: 'nome', label: 'Seu nome *', type: 'text' },
+    { name: 'email', label: 'E-mail *', type: 'email' },
+    { name: 'whatsapp', label: 'WhatsApp *', type: 'tel' },
+    { name: 'cidade', label: 'Cidade *', type: 'text' },
+    { name: 'nome_negocio', label: 'Nome do negócio *', type: 'text' },
     { name: 'instagram', label: 'Instagram', type: 'text' },
-    { name: 'modelo_negocio', label: 'Modelo de negócio', type: 'text' },
-    { name: 'nicho_problema', label: 'Qual problema você resolve?', type: 'textarea' },
+    { name: 'modelo_negocio', label: 'Modelo de negócio *', type: 'text' },
+    { name: 'nicho_problema', label: 'Qual problema você resolve? *', type: 'textarea' },
     { name: 'investimento_mkt', label: 'Investimento em marketing (R$)', type: 'number' },
     { name: 'ticket_medio', label: 'Ticket médio (R$)', type: 'number' },
     { name: 'vendas_mensais', label: 'Vendas nos últimos 3 meses', type: 'number' },
-    { name: 'meta_crescimento', label: 'Meta de crescimento', type: 'text' },
-    { name: 'maior_desafio', label: 'Maior desafio hoje', type: 'textarea' },
+    { name: 'meta_crescimento', label: 'Meta de crescimento *', type: 'text' },
+    { name: 'maior_desafio', label: 'Maior desafio hoje *', type: 'textarea' },
     { name: 'estrutura_trabalho', label: 'Sua estrutura atual', type: 'textarea' },
     { name: 'ferramentas', label: 'Ferramentas que usa', type: 'text' },
-    { name: 'resultado_esperado', label: 'O que você espera deste diagnóstico?', type: 'textarea' },
+    { name: 'resultado_esperado', label: 'O que você espera deste diagnóstico? *', type: 'textarea' },
     { name: 'interesse_ajuda', label: 'Gostaria de ajuda para aplicar o plano?', type: 'radio', options: ['Sim', 'Não'] }
   ]
 
@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   nextBtn.addEventListener('click', () => {
+    if (!validarCamposObrigatorios()) return
+
     const input = questionContainer.querySelector('input, textarea, select')
     if (input) respostas[input.name] = input.value || ''
 
@@ -84,6 +86,32 @@ document.addEventListener("DOMContentLoaded", () => {
     questionContainer.innerHTML = html
 
     prevBtn.disabled = step === 0
+  }
+
+  function validarCamposObrigatorios() {
+    const atual = document.querySelector('#question-container')
+    const campo = atual.querySelector('[name]')
+    const label = atual.querySelector('h3')
+    const isEmpty =
+      !campo ||
+      (campo.type === 'radio' && !atual.querySelector('input:checked')) ||
+      (campo.type === 'checkbox' && atual.querySelectorAll('input:checked').length === 0) ||
+      campo.value.trim() === ''
+
+    atual.querySelectorAll('input, select, textarea').forEach(i => {
+      i.style.border = '1px solid #ccc'
+    })
+
+    if (isEmpty) {
+      campo?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      label.innerHTML += ` <span style="color:red">*</span>`
+      atual.querySelectorAll('input, select, textarea').forEach(i => {
+        i.style.border = '2px solid red'
+      })
+      return false
+    }
+
+    return true
   }
 
   async function enviarRespostas() {
