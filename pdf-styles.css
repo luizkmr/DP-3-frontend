@@ -1,0 +1,178 @@
+.pdf-loading-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.pdf-loading-message p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #4a6bff;
+}
+
+/* Estilos específicos para o modo de impressão/PDF */
+.print-mode {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    color: #000 !important;
+}
+
+.print-mode .secao {
+    page-break-inside: avoid;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.print-mode h2 {
+    color: #4a6bff !important;
+    font-size: 20px !important;
+    margin-bottom: 15px !important;
+    page-break-after: avoid;
+}
+
+.print-mode h3 {
+    color: #4a6bff !important;
+    font-size: 16px !important;
+    margin-bottom: 10px !important;
+    page-break-after: avoid;
+}
+
+.print-mode .resumo-lista {
+    background-color: #f8f9fa !important;
+    border-left: 4px solid #4a6bff !important;
+    padding: 15px !important;
+    margin-bottom: 20px !important;
+}
+
+.print-mode .pilar {
+    background-color: #f8f9fa !important;
+    padding: 15px !important;
+    margin-bottom: 20px !important;
+    page-break-inside: avoid;
+}
+
+.print-mode .pontuacao-barra {
+    border: 1px solid #ccc !important;
+    height: 10px !important;
+}
+
+.print-mode .pontuacao-preenchimento {
+    background-color: #4a6bff !important;
+}
+
+.print-mode .swot-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px !important;
+    page-break-inside: avoid;
+}
+
+.print-mode .swot-item {
+    padding: 15px !important;
+    border-radius: 8px !important;
+    page-break-inside: avoid;
+}
+
+.print-mode .swot-forcas {
+    background-color: #d4edda !important;
+    border-left: 4px solid #28a745 !important;
+}
+
+.print-mode .swot-fraquezas {
+    background-color: #f8d7da !important;
+    border-left: 4px solid #dc3545 !important;
+}
+
+.print-mode .swot-oportunidades {
+    background-color: #d1ecf1 !important;
+    border-left: 4px solid #17a2b8 !important;
+}
+
+.print-mode .swot-ameacas {
+    background-color: #fff3cd !important;
+    border-left: 4px solid #ffc107 !important;
+}
+
+.print-mode .plano-acao-tabela {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 20px 0 !important;
+    page-break-inside: avoid;
+}
+
+.print-mode .plano-acao-tabela th, 
+.print-mode .plano-acao-tabela td {
+    padding: 8px !important;
+    text-align: left !important;
+    border: 1px solid #000 !important;
+}
+
+.print-mode .plano-acao-tabela th {
+    background-color: #f8f9fa !important;
+    font-weight: bold !important;
+}
+
+.print-mode .prioridade-alta {
+    color: #dc3545 !important;
+    font-weight: bold !important;
+}
+
+.print-mode .prioridade-média {
+    color: #fd7e14 !important;
+    font-weight: bold !important;
+}
+
+.print-mode .prioridade-baixa {
+    color: #28a745 !important;
+}
+
+.print-mode .kpis-container,
+.print-mode .oportunidades-container,
+.print-mode .estrategias-container,
+.print-mode .recomendacoes-dados {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px !important;
+}
+
+.print-mode .kpi-grupo,
+.print-mode .oportunidade-item,
+.print-mode .estrategia-item,
+.print-mode .recomendacao-item {
+    background-color: #f8f9fa !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+    page-break-inside: avoid;
+}
+
+.print-mode .oportunidade-item,
+.print-mode .estrategia-item {
+    border-left: 4px solid #4a6bff !important;
+}
+
+/* Quebras de página específicas */
+.print-mode .plano-acao-tabela,
+.print-mode .kpis-container,
+.print-mode .oportunidades-container,
+.print-mode .estrategias-container {
+    page-break-before: auto;
+    page-break-after: auto;
+}
+
+/* Cabeçalho para cada página */
+.print-mode::before {
+    content: "Diagnóstico Empresarial";
+    display: block;
+    text-align: center;
+    font-size: 10pt;
+    color: #666;
+    margin-bottom: 10px;
+}
