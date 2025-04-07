@@ -115,14 +115,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function enviarRespostas() {
-    const res = await fetch('https://dpa-sk6b.onrender.com/api/gerar-diagnostico', {
+    const res = await fetch('https://dp-3-backend-production.up.railway.app/analyze', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ respostas })
+      body: JSON.stringify(respostas)
     })
 
     const data = await res.json()
-    document.getElementById('diagnosis-container').innerHTML = data.html || '<p>Erro ao gerar diagnóstico.</p>'
+
+    const htmlFinal = `
+      <div class="bloco">
+        <h2>📌 Diagnóstico Estratégico</h2>
+        <p>${data.diagnostico}</p>
+
+        <h2>🔍 Oportunidades e Ameaças</h2>
+        <p>${data.oportunidades}</p>
+
+        <h2>📊 Projeção de Faturamento</h2>
+        <p>${data.faturamento}</p>
+
+        <h2>✅ Plano de Ação</h2>
+        <p>${data.plano_acao}</p>
+      </div>
+    `
+
+    document.getElementById('diagnosis-container').innerHTML = htmlFinal
     showScreen(result)
   }
 })
